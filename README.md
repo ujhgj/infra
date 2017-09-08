@@ -1,12 +1,23 @@
 # Infra
 Это инфраструктурный репозиторий для курса Otus DevOps
 
+Команда для сборки Base образа:
+packer build \
+    -var 'project_id=...' \
+    -var 'source_image=ubuntu-1604-xenial-v20170815a' \
+    packer/ubuntu16.json
+
+Команда для сборки Immutable образа:
+packer build \
+    -var 'project_id=...' \
+    -var 'source_image=reddit-base-...' \
+    packer/immutable.json
+
 Команда для запуска приложения из Immutable образа:
-gcloud compute instances create reddit-immutable-XXX \
+gcloud compute instances create ... \
     --boot-disk-size=10GB \
-    --image=reddit-immutable-1504789403 \
+    --image=reddit-immutable-... \
     --machine-type=g1-small \
     --tags puma-server \
     --restart-on-failure \
-    --zone=europe-west1-b \
-    --metadata-from-file startup-script=packer/scripts/run_reddit.sh
+    --zone=europe-west1-b

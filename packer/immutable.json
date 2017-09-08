@@ -28,7 +28,8 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/deploy_reddit.sh"
+            "script": "packer/scripts/deploy_reddit.sh",
+            "execute_command": "sudo {{.Path}}"
         }
     ]
 }

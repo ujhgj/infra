@@ -1,4 +1,5 @@
 project = "infra-179516"
 public_key_path = "~/.ssh/appuser.pub"
 provisioner_connection_key_path = "~/.ssh/appuser"
-disk_image = "reddit-base-1505061968"
+app_disk_image = "reddit-ruby-1505397885"
+db_disk_image = "reddit-db-1505397890"

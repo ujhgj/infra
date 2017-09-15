@@ -1,23 +1,25 @@
 # Infra
 Это инфраструктурный репозиторий для курса Otus DevOps
 
-Команда для сборки Base образа:
-packer build \
-    -var 'project_id=...' \
-    -var 'source_image=ubuntu-1604-xenial-v20170815a' \
-    packer/ubuntu16.json
+### Packer
+   
+Сборка app-server`a:
 
-Команда для сборки Immutable образа:
-packer build \
-    -var 'project_id=...' \
-    -var 'source_image=reddit-base-...' \
-    packer/immutable.json
+    packer build \
+        -var 'project_id=infra-180010' \
+        -var 'source_image=ubuntu-1604-xenial-v20170815a' \
+        packer/app.json
+    
+Сборка db-server`a:
 
-Команда для запуска приложения из Immutable образа:
-gcloud compute instances create ... \
-    --boot-disk-size=10GB \
-    --image=reddit-immutable-... \
-    --machine-type=g1-small \
-    --tags puma-server \
-    --restart-on-failure \
-    --zone=europe-west1-b
+    packer build \
+        -var 'project_id=infra-180010' \
+        -var 'source_image=ubuntu-1604-xenial-v20170815a' \
+        packer/db.json
+
+### Terraform
+
+
+    cd terraform/environment/prod; terraform plan
+    cd terraform/environment/stage; terraform plan
+

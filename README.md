@@ -1,6 +1,20 @@
 # Infra
 Это инфраструктурный репозиторий для курса `Otus DevOps`
 
+### Ansible
+
+    cd ansible
+
+Чтобы использовать dynamic inventory для gce необходимо:
+1) создать сервисный аккаунт с ключом: https://console.developers.google.com/projectselector/iam-admin/serviceaccounts
+2) скачать ключ
+3) заполнить реквизиты в файле ansible/inventory/gce.ini.example
+
+    
+    ansible-playbook reddit_app.yml --limit tag_reddit-db --tags db-tag
+    ansible-playbook reddit_app.yml --limit tag_reddit-app --tags app-tag
+    ansible-playbook reddit_app.yml --limit tag_reddit-app --tags deploy-tag
+
 ### Packer
    
 Сборка app-server`a:

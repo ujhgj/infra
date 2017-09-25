@@ -33,10 +33,6 @@ resource "google_compute_instance" "app" {
     source      = "../../modules/app/files/puma.service"
     destination = "/tmp/puma.service"
   }
-
-  provisioner "remote-exec" {
-    script = "../../modules/app/files/deploy.sh"
-  }
 }
 
 resource "google_compute_address" "app_ip" {

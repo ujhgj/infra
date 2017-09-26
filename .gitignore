@@ -5,3 +5,5 @@
 *.terraform.tfstate.lock.info
 .terraform/
 terraform/environment/*/backend.tf
+*.retry
+ansible/inventory/gce.ini

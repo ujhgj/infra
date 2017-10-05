@@ -44,3 +44,9 @@
     ansible-playbook reddit_app.yml --limit tag_reddit-db --tags db-tag \
         && ansible-playbook reddit_app.yml --limit tag_reddit-app --tags app-tag \
         && ansible-playbook reddit_app.yml --limit tag_reddit-app --tags deploy-tag
+
+Для работы с разными окружениями в ansible задать файл ansible/environments/[stage|prod]/hosts и использовать команды
+
+
+    ansible-playbook -i environments/stage/hosts site.yml
+    ansible-playbook -i environments/prod/hosts site.yml

@@ -7,3 +7,4 @@
 terraform/environment/*/backend.tf
 *.retry
 ansible/inventory/gce.ini
+ansible/project.json

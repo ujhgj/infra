@@ -2,14 +2,14 @@
 Это инфраструктурный репозиторий для курса `Otus DevOps`
 
 ### Packer
-   
+
 Сборка app-server`a:
 
     packer build \
         -var 'project_id=infra-180010' \
         -var 'source_image=ubuntu-1604-xenial-v20170815a' \
         packer/app.json
-    
+
 Сборка db-server`a:
 
     packer build \
@@ -40,7 +40,7 @@
 2) скачать ключ
 3) заполнить реквизиты в файле ansible/inventory/gce.ini.example
 
-    
+
     ansible-playbook reddit_app.yml --limit tag_reddit-db --tags db-tag \
         && ansible-playbook reddit_app.yml --limit tag_reddit-app --tags app-tag \
         && ansible-playbook reddit_app.yml --limit tag_reddit-app --tags deploy-tag

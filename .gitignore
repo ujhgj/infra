@@ -1,3 +1,4 @@
+# Terraform
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
@@ -5,6 +6,10 @@
 *.terraform.tfstate.lock.info
 .terraform/
 terraform/environment/*/backend.tf
+# Ansible
 *.retry
 ansible/inventory/gce.ini
 ansible/project.json
+# Vagrant
+.vagrant/
+*.logs
